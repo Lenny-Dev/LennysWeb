@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+$mobile: 700px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+
+body{
+    margin: 0; padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+h1{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+
+    background-color: #3E2644;
+
+    h1, a{
+        display: inline;
+        color: white;
+    }
+
+    h1{
+        margin-left: 5px;
+        padding: 10px;
+
+        @include mobile(){
+            font-size: 1.1em;
+        }
+    }
+
+    ul{
+        float: right;
+        margin: 0;
+        padding: 10px;
+
+        li{
+            display: inline-block;
+            margin: 0 5px;
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.landing-container{
+    width: 100%;
+    height: 100vh;
+
+    background-color: white;
+
+    .landing-content{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        padding: 15% 25px;
+
+        text-align: center;
+
+        h1{
+            font-size: 3em;
+        }
+        
+        p{
+            font-size: 2em;
+        }
+
+        ul{
+            margin: 0;
+            padding: 0;
+
+            li{
+                display: inline-block;
+
+                .fa {
+                    padding: 10px;
+                    font-size: 30px;
+                    width: 30px;
+                    text-align: center;
+                    text-decoration: none;
+                    margin: 5px 2px;
+                    border-radius: 50%;
+                }
+
+                .fa:hover {
+                    opacity: 0.7;
+                }
+
+                .fa-instagram {
+                    background: #125688;
+                    color: white;
+                }
+
+                .fa-twitter {
+                    background: #55ACEE;
+                    color: white;
+                }
+
+                .fa-facebook {
+                    background: #3B5998;
+                    color: white;
+                }
+                  
+            }
+        }
+    }
+}
+
+.about-container{
+    background-color: #503A56;
+    color: white;
+    padding: 100px;
+
+    @include mobile {
+        padding: 0px;
+    }
+
+    .about{
+        display: flex;
+        flex-wrap: wrap;
+
+        @include  mobile{
+            flex-direction: column;
+        }
+
+        .about-title, .about-paragraph{
+            padding: 10px;
+        }
+
+        .about-title{
+            flex: 0.2;
+            text-align: center;
+
+            h1{
+                position: relative;
+                top: 50%;
+
+                font-size: 3em;
+
+                transform: translateY(-50%);
+
+                @include mobile {
+                    transform: translate(0%);
+                }
+            }
+        }
+
+        .about-paragraph{
+            flex: 1;
+
+            @include mobile {
+                p{
+                    margin: 0px;
+                }
+            }
+        }
+    }
+}
+
+.projects-container{
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    margin-bottom: 50px;
+
+    text-align: center;
+
+    @include mobile(){
+        height: 100%;
+        margin: 0px;
+    }
+
+    p{
+        margin-left: 5px;
+
+        font-size: 2em;
+    }
+
+
+    .projects-content{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+
+        @include mobile(){
+            transform: none;
+        }
+    }
+
+    .projects{
+        width: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+        margin: 0 auto;
+
+        @include mobile(){
+            width: 100%;
+        }
+
+        .project{
+            flex: 1;
+
+            min-width: 275px;
+            min-height: 300px;
+
+            background-color: #A399A7;
+            margin: 5px 5px;
+
+            border-radius: 10px;
+            text-align: center;
+
+            @include mobile(){
+                //width: 100%;
+                margin: 5px 5px;
+                border-radius: 0px;
+            }
+
+            h1{
+                color: white;
+                border-radius: 10px 10px 0px 0px;
+                background-color: #6C5A72;
+
+                @include mobile() {
+                    border-radius: 0px;
+                }
+            }
+        }
+    }
+}
+
+.footer-container{
+    width: 100%;
+    height: 400px;
+
+    background-color: #503A56;
+}
+
+.portfolio-container{
+    width: 100%;
+    height: 100vh;
+    background: #12c2e9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    canvas{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        z-index: -1;
+        background-color: red;
+    }
+
+    .services-containers{
+        width: 75%;
+        height: 50%;
+        min-height: 350px;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+
+        display: flex;
+
+        .service-info{
+            flex: 0.3;
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .service-services{
+            flex: 1;
+            background-color: white;
+        }
+    }
+}
